@@ -1,2 +1,2 @@
-# ML_BASICS
-ML BASICS and ALGORITHMS
+#30_day_Python
+Python Basics
