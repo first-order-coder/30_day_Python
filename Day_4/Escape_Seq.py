@@ -1,6 +1,0 @@
-print('I hope everything is okay. \nAre you?')
-print('Days \tTopics \tExcercises')
-print('Day 1 \t3 \t5')
-print('Day 2 \t6 \t5')
-print('Day 3 \t5 \t23')
-print('in every we start \"Hello World!\"')
