@@ -1,1 +1,0 @@
-company = 'Coding For  All'
