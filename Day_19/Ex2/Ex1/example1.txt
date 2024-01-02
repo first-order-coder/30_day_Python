@@ -1,0 +1,3 @@
+After we open a file, we should close it. There is a high tendency of forgetting to close them. 
+                    There is a new way of opening files using with - 
+                    closes the files by itself. Let us rewrite the the previous example with the with method:
