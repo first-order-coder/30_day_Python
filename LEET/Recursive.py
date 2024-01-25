@@ -60,4 +60,3 @@ def facotrials_recursive(x):
     return result
 
 print(facotrials_recursive(5))
-
