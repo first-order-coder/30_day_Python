@@ -1,5 +1,3 @@
-
-
 web_tech = ['HTML', 'CSS', 'JAVA', 'REACT']
 result1 = ' '.join(web_tech)
 print(result1)
@@ -9,7 +7,6 @@ print(course.startswith('Coding'))
 print(course.endswith('Coding'))
 
 course_1 = ' Coding For All '
-
 
 nospaces = course_1.replace(' ', '')
 st = course_1.strip()

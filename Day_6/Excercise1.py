@@ -1,25 +1,23 @@
-from itertools import count
-
-
 empty_tuple = ()
 empty_tuple_1 = tuple()
 
 print(empty_tuple)
 print(empty_tuple_1)
 
-sibilings = ('Shefy', 'kalu','Dora')
-names = ('Ginura', 'Ranuli', 'Chanuli')
-all = sibilings + names
+sibilings = ('Brian', 'Peter','Stewie')
+names = ('John', 'Meg', 'Cleavelend')
+all_names = sibilings + names
 
 
-print(all.count('Ginura'))
-print(len(all))
+print(all_names.count('Brian')) #number of times an item appears in a list
+print(len(all_names))
 
-list = list(all)
-list.append('Inoka')
-list.append('Buwaneka')
-list.insert(3, 'Inoka')
-tpl = tuple(list)
+new_lst: list[str] = list(all_names) #added an annotation to say that this new_lst is a list contatining str items
+print(type(new_lst))
+new_lst.append('Tray')
+new_lst.append('Nate')
+new_lst.insert(3, 'Nashua')
+tpl = tuple(new_lst)
 
-print(list)
+print(new_lst)
 print(tpl)

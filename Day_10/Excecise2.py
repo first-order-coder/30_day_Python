@@ -11,8 +11,8 @@ for number in numbers:
     print(number)
 
 
-range = range(1,8)
-for i in range:
+# range = range(1,8)
+for i in range(1,8):
     total = '#' * i 
     print(total, end=' ')
     print(' ')

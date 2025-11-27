@@ -3,8 +3,8 @@ from unicodedata import name
 
 
 Challenge = 'Coding For All'
-print(Challenge.split(' '))
-print(Challenge[10])
+print(Challenge.split(' ')) #will split the string from given sepeartor(between the semi columns), and put them all in a list
+print(Challenge[2])
 
 names = 'Facebook, Google, Microsoft, Apple, IBM, Oracle, Amazon'
 print(names.split(','))

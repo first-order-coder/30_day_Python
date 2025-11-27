@@ -11,6 +11,5 @@ print(A.union(B))
 
 print(A.symmetric_difference(B))
 
-del A
 print(A)
 print(A.union(B))

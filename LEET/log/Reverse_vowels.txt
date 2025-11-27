@@ -1,0 +1,16 @@
+>> Changing Vowels Position
+	> First we took string and made it lowercase
+	> Then using 2 for loops we go through each letter of the string and see if it will match the the value we got from vowels lists loop
+	> If it does then we append the index of that string letter to a new empty list
+		>> The problem was string.index(i) only gives the index of the first occurance. So when we have same characters in string it will give us the first occurance index of the character
+		but that is not what we wanted.
+	> To overcome this problem we used enumerate(list) function in a loop
+		>> for index_of_item, item in enumerate(list):
+	> then we used for j,k in zip(lst_of_vowel_index, reveresed_index_vowel_lst): with zip we can use 1 for loop for 2 items.
+	> But another problem has come up
+		>> even though we are chainging the vowels using indexes between lists but the second one is not changing.
+		>> The solution was to use the original string as index
+			
+			>> before--> lst_1[j] = s[k]
+			>> after--> lst_1[j] = s[k]
+			>> we are not modifying the string and the list is only modified one way not both ways.

@@ -1,5 +1,5 @@
 course = ['Thirty', 'Days', 'of', 'python']
-result = ' '.join(course)
+result = '&'.join(course)
 print(result)
 
 
@@ -7,6 +7,8 @@ print(result)
 forwho = ['coding', 'for', 'All']
 result_1 = ' '.join(forwho)
 print(result_1)
+print(list(reversed(forwho)))
+print(forwho[::-1])
 
 company = 'Coding For  All'
 # print(company)

@@ -1,5 +1,3 @@
-
-
 st_dct = {
    'first name': 'Ginura', 
    'Last name': 'Amarasena', 

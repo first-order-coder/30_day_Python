@@ -1,22 +1,36 @@
+def read_float(prompt: str) -> float: #function will return a float, will take a string, type hint: prompt should should be a string (prompt, type_=str) --> (text shown to user)
+    while True:
+        try:
+            user_input = float(input(prompt))
+        except ValueError: #ValueError exception occurs if a function recives a value of wrong type
+            print("Please enter a valid number")
+        else:
+            break
+    return user_input
 
+def triangle_area(base: float, height: float) -> float:
+    return 0.5 * base * height
 
+def triangle_perimeter(a:float, b:float, c:float) -> float:
+    return a+b+c
 
-age = int(10)
-height = float(5.9)
-velo = 1 + 1j
+def main() -> None: #returns None
+    age:int = 10
+    height:float = 5.9
+    velocity:complex = 1 + 1j
 
-print(age)
-print(height)
-print(velo)
+    #area from base and height
+    base = read_float("Enter base: ")
+    tri_height = read_float("Enter height: ") # handling of the input is given to read_float funciton 
+    area = triangle_area(base, tri_height)
+    print(f"Area of the triangle is: {area}")
 
-Base = float(input('Enter Base:' ))
-Height = float(input('Enter Height'))
-Area = 0.5 * Base * Height
-print('Area of the Trinagle is:', Area )
+    #perimeter of the triangle
+    side_a = read_float("Enter side a: ")
+    side_b = read_float("Enter side b: ")
+    side_c = read_float("Enter side c: ")
+    perimeter = triangle_perimeter(side_a, side_b, side_c)
+    print(f"Perimeter of the triangle is {perimeter} m")
 
-Side_A, Side_B, Side_C = float(input('Enter Side a:')),float(input('Enter Side b:')), float(input('Enter Side c:'))
-Perimeter_of_Triangle = Side_A + Side_B + Side_C 
-Area = 0.5 * Base * Height
-
-print('Perimeter of the triangle is:', Perimeter_of_Triangle )
-
+if __name__ == "__main__": #name guard
+    main()
