@@ -33,7 +33,8 @@ user_id_gen_by_user()
 #     print(run)
 # rgb_color_gen()
 
-
+print(f"{3.112912912:.4f}")
+print(random.choices(string.ascii_letters))
 
 
 

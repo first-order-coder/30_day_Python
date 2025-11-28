@@ -1,0 +1,6 @@
+x = ("apple", "banana", "orange")
+y = list(x)
+y.append("mango")
+x = tuple(y)
+print(x)
+print(type(x))
