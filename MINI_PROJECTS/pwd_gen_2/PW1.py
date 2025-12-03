@@ -1,11 +1,10 @@
 from cryptography.fernet import Fernet
 
 def load_key():
-    file = open('key.key', 'rb')
+    file = open('./MINI_PROJECTS/PW1/key.key', 'rb')
     key = file.read()
-    file.close
+    file.close()
     return key
-
 
 master_password = input('What is your password:')
 key = load_key() + master_password.encode()
@@ -15,8 +14,6 @@ fer = Fernet(key)
     key = Fernet.generate_key()
     with open('key.key', 'wb') as key_file:
         key_file.write(key)'''
-
-
 
 def update():
     with open('passwords.txt') as f:
@@ -30,7 +27,7 @@ def create():
     name = input('Account Name:')
     pwd = input('Create Password:')
 
-    with open('passwords.txt', 'a') as f:
+    with open('./MINI_PROJECTS/PW1/passwords.txt', 'a') as f:
         f.write(name + ' | ' + fer.encrypt(pwd.encode()).decode() + '\n')
 
 while True:
