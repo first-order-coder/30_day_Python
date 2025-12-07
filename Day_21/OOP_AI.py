@@ -44,7 +44,6 @@ class Course:
         if len(self.students) < self.max_students:
             enrollment = Enrollment(student)
 
-
 class Enrollment:
     def __init__(self, student, course, grade):
         self.student = student

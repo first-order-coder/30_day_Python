@@ -8,6 +8,9 @@ class Pet:
 
 class Dog(Pet):
 
+    def declare_att(self,color):
+        self.color = color
+
     def speak(self):
         print('Bark')
     

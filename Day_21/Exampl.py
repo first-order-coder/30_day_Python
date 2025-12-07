@@ -20,25 +20,30 @@ class Course(Student):
         if len(self.students) < self.max_students:
             self.students.append(student)
             return True
-        return False
-    
+        return False, self.students
     
     def get_average_grade(self):
         value = 0
         for student in self.students:
-            value += self.get_grades()
-        
+            value += student.get_grades()
         return value / len(self.students) 
+    
+    def __repr__(self):
+        return f"Std{self.name, self.max_students}"
 
 s1 = Student('Tim', 22, 95)
 s2 = Student('Gin', 32, 85)
 s3 = Student('hen', 23, 65)
 
-course = Course('Science', 2)
-course.add_student(s1)
-course.add_student(s2)
-# print(course.students[0].name)
-print(course.get_average_grade())
+course1 = Course('Maths', 3)
+course1.add_student(s1)
+print(course1.students)
 
-# c1 = Course()
-# print(c1.add_student())
+# course = Course('Science', 2)
+# course.add_student(s1)
+# course.add_student(s2)
+# # print(course.students[0].name)
+# print(course.get_average_grade())
+
+# # c1 = Course()
+# # print(c1.add_student())
