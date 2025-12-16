@@ -85,5 +85,6 @@ def main():
     print(f"You chose: {user_option_chosed}")
 
     choosing_the_operation(num_chose)
+    
 if __name__ == "__main__":
     main()
