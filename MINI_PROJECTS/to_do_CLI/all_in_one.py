@@ -1,16 +1,17 @@
 import json
 from pathlib import Path
 import sys
+from art import *
 
 p = Path('/Users/ginuram/Desktop/Dekstop/30DAYSOFPYTHON/MINI_PROJECTS/to_do_CLI')
 task_file = p / "all_in_one.json"
 
-tasks = []
-if task_file.exists():
+def read_tasks():
+    if task_file.exists() or task_file.stat().st_size == 0:
+        return []
+    
     with task_file.open("r") as f:
-        tasks = json.load(f)
-else:
-    tasks = []
+        return(json.load(f))
 
 "<--- Working with sys.argv--->"
 # def system_logic(tasks):
@@ -26,25 +27,62 @@ else:
     # with task_file.open("w") as f:
     #     json.dump(tasks, f, indent=2)
 
-def add_task(user_given_task):
-    tasks.append({"id":len(tasks)+1,"task":user_given_task, "status":False})
+def write_tasks(tasks):
+    task_file.parent.mkdir(parents=True, exist_ok=True)
     with task_file.open("w") as f:
         json.dump(tasks, f, indent=2)
 
 def load_tasks(tasks):
-    with task_file.open("r") as f:
-        tasks = json.load(f)
-        for task in tasks:
-            print(task)
+    if not tasks:
+        print("No tasks yet.")
+        return
+    for task in tasks:
+        if task.get("status"):
+            mark = "✔" 
+        else:
+            mark = ""
+        print(f"[{mark} {task["id"]}: {task["task"]}]")
 
-ops_lst = ["ADD", "LOAD"]
+def add_task(tasks):
+    tprint("ADD TASK", "mini")
+    text = input("Task: ").strip()
+    if not text: #if text string is empty then it would return false (basically this means if not fals == if true)
+        print("Task cannot be empty.")
+        return tasks
+    tasks.append({"id": len(tasks) + 1, "task": text, "status": False})
+
+ops_lst = ["ADD TASK", "LOAD TASK", "UPDATE TASK", "REMOVE TASK", "QUIT"]
+def operation_list(ops):
+    print("-"*115)
+    tprint("SELECT OPERATION", "graffiti-tiny")
+    print("-"*115)
+    print("")
+
+    for i,e in enumerate(ops):
+        print(i+1,e)
+    print("")
+
 def working_with_menu():
+    operation_list(ops_lst)
     user_input = input("Enter operation:")
     if (int(user_input) == 1):
-        add_task_input = input("Selected ADD Enter Your operation:")
+        tprint("ADD TASK", "mini")
+        add_task_input = input("Task:")
         add_task(add_task_input)
-
+        tprint("Task added Sucessfully\n", "tiny")
     elif (int(user_input) == 2):
+        print("------------------------ Your tasks are -------------------------------------------------\n")
+        load_tasks(tasks)
+    elif (int(user_input) == 3):
         print("Selected LOAD and Your tasks are:\n")
         load_tasks(tasks)
-working_with_menu()
+    elif (int(user_input) == 4):
+        print("Selected LOAD and Your tasks are:\n")
+        load_tasks(tasks)
+    elif (int(user_input) == 5):
+        # return False
+        tprint("Good bye!", "small")
+        sys.exit() #we can use either of them 
+
+while True:
+    working_with_menu()
