@@ -1,47 +1,7 @@
 [
   {
     "id": 1,
-    "task": "Work Like Hell",
-    "status": false
-  },
-  {
-    "id": 2,
-    "task": "Finish python basic",
-    "status": false
-  },
-  {
-    "id": 3,
-    "task": "Finish python",
-    "status": false
-  },
-  {
-    "id": 4,
-    "task": "Finish backend fast",
-    "status": false
-  },
-  {
-    "id": 5,
-    "task": "Must do this",
-    "status": false
-  },
-  {
-    "id": 6,
-    "task": "Must get this done",
-    "status": false
-  },
-  {
-    "id": 7,
-    "task": "Coding is so fucking fun, Everyone should Try it!!",
-    "status": false
-  },
-  {
-    "id": 8,
-    "task": "Coding is fun",
-    "status": false
-  },
-  {
-    "id": 9,
-    "task": "Coding is So FUn",
+    "task": "Work like hell",
     "status": false
   }
 ]

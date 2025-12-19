@@ -41,7 +41,7 @@ def load_tasks(tasks):
             mark = "✔" 
         else:
             mark = ""
-        print(f"[{mark} {task["id"]}: {task["task"]}]")
+        print(mark, task["id"], task["task"])
 
 def add_task(tasks):
     tprint("ADD TASK", "mini")
@@ -50,39 +50,50 @@ def add_task(tasks):
         print("Task cannot be empty.")
         return tasks
     tasks.append({"id": len(tasks) + 1, "task": text, "status": False})
+    write_tasks(tasks)
+    tprint("Saved", "tiny")
+    return tasks
+
 
 ops_lst = ["ADD TASK", "LOAD TASK", "UPDATE TASK", "REMOVE TASK", "QUIT"]
-def operation_list(ops):
+def menu():
     print("-"*115)
     tprint("SELECT OPERATION", "graffiti-tiny")
     print("-"*115)
     print("")
-
-    for i,e in enumerate(ops):
+    for i,e in enumerate(ops_lst):
         print(i+1,e)
-    print("")
+    print()
 
-def working_with_menu():
-    operation_list(ops_lst)
-    user_input = input("Enter operation:")
-    if (int(user_input) == 1):
-        tprint("ADD TASK", "mini")
-        add_task_input = input("Task:")
-        add_task(add_task_input)
-        tprint("Task added Sucessfully\n", "tiny")
-    elif (int(user_input) == 2):
-        print("------------------------ Your tasks are -------------------------------------------------\n")
-        load_tasks(tasks)
-    elif (int(user_input) == 3):
-        print("Selected LOAD and Your tasks are:\n")
-        load_tasks(tasks)
-    elif (int(user_input) == 4):
-        print("Selected LOAD and Your tasks are:\n")
-        load_tasks(tasks)
-    elif (int(user_input) == 5):
-        # return False
-        tprint("Good bye!", "small")
-        sys.exit() #we can use either of them 
+def main():
+    tasks = read_tasks()
+    while True:
+        menu()
+        user_input = input("Enter operation:").strip()
+        
+        if not user_input.isdigit():
+            print("Please enter a number 1-5. \n")
+            continue
 
-while True:
-    working_with_menu()
+        user_input = int(user_input)
+
+        if (user_input == 1):
+            tasks = add_task(tasks)
+        elif (user_input == 2):
+            print("Your tasks:\n")
+            load_tasks(tasks)
+        elif (int(user_input) == 3):
+            print("Selected LOAD and Your tasks are:\n")
+            load_tasks(tasks)
+        elif (int(user_input) == 4):
+            print("Selected LOAD and Your tasks are:\n")
+            load_tasks(tasks)
+        elif (int(user_input) == 5):
+            # return False
+            tprint("Good bye!", "small")
+            break
+        else:
+            print("Choose a number 1-5.\n")
+
+if __name__ == "__main__":
+    main()
