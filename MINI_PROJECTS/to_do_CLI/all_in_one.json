@@ -1,17 +1,12 @@
 [
   {
     "id": 1,
-    "task": "Work like he;;",
+    "task": "Work like hell",
     "status": false
-  },
-  {
-    "id": 2,
-    "task": "Become best in your field",
-    "status": true
   },
   {
     "id": 3,
     "task": "Do so much hours",
-    "status": false
+    "status": true
   }
 ]
