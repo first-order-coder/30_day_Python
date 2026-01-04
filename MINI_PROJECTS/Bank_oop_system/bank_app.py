@@ -40,6 +40,7 @@ class Account(ABC):
         self._balance = 0.0 #starts from default value, anyone calling this class cannot change them
         self._closed = False
         self._transactions: list[Transaction] = []
+        self._transactions:list = []
 
     @property
     def balance(self) -> float:
