@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from datetime import datetime
+from datetime import datetime, timezone
 from typing import Optional
 from abc import ABC, abstractmethod
 
@@ -70,7 +70,7 @@ class Account(ABC):
             Transaction(
                 tx_type="deposit",
                 amount=amount,
-                timestamp=datetime.now(datetime.utc),
+                timestamp=datetime.now(timezone.utc),
                 note=note,
                 to_account=self.account_id,
             )
@@ -87,7 +87,7 @@ class Account(ABC):
             Transaction(
                 tx_type="withdraw",
                 amount=amount,
-                timestamp=datetime.now(datetime.utc),
+                timestamp=datetime.now(timezone.utc),
                 note=note,
                 to_account=self.account_id,
             )
@@ -95,9 +95,22 @@ class Account(ABC):
     
     @abstractmethod
     def _withdraw_rule_check(self, amount:float):
-        """Eac accoun type impelemnts withdrawal rule checks."""
+        """Each accoun type impelemnts withdrawal rule checks."""
     
     def transactions(self):
         return list(self._transactions)
 
+class DummyAccount(Account):
+    def _withdraw_rule_check(self, amount: float):
+        return
+    
+def main():
+    acc = DummyAccount("A00001", "C000001")
+    acc.deposit(100.0, "init")
+    acc.withdraw(30.0, "buy food")
+    print("Milestone 3 OK: balance = ", acc.balance)
+    print("Transactions:", acc.transactions())
 
+
+if __name__ == "__main__":
+    main()
