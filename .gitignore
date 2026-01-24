@@ -1,0 +1,8 @@
+venv
+
+.venv
+venv/
+.venv/
+env/
+ENV/
+Django/my_env/
