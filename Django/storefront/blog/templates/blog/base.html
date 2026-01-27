@@ -40,11 +40,11 @@
         <div class="col-md-8">
             {% if messages %}
                 {% for message in messages %}
-                <div class="aler alert-{{ message.tags }}">
-                    {{ message }}
-                </div>
-                {% end for %}
-            {% end if %}
+                    <div class="aler alert-{{ message.tags }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
             {% block content %}{% endblock %}
         </div>
         <div class="col-md-4">
