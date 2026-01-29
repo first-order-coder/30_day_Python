@@ -26,9 +26,17 @@
             <a class="nav-item nav-link" href="{% url 'blog-about' %}">About</a>
             </div>
             <!-- Navbar Right Side -->
-            <div class="navbar-nav">
-            <a class="nav-item nav-link" href="{% url 'login' %}">Login</a>
-            <a class="nav-item nav-link" href="{% url 'register' %}">Register</a>
+            <div class="navbar-nav ml-auto">
+                {% if user.is_authenticated %}
+                    <form id="logout-form" method="post" action="{% url 'logout' %}" class="m-0 p-0">
+                        {% csrf_token %}
+                        <button type="submit" class="nav-link">Logout</button>
+                    </form>
+                    <a class="nav-item nav-link" href="{% url 'profile' %}">Profile</a>
+                {% else %}
+                    <a class="nav-item nav-link" href="{% url 'login' %}">Login</a>
+                    <a class="nav-item nav-link" href="{% url 'register' %}">Register</a>
+                {% endif %}    
             </div>
         </div>
         </div>
