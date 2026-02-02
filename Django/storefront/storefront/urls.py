@@ -32,7 +32,5 @@ urlpatterns = [
     path('', include('blog.urls')) #this is what the home page looks like
 ]
 
-
-
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
