@@ -24,6 +24,7 @@ class PostListView(ListView):
     template_name = 'blog/home.html' #it will automatically look inside templates folder
     context_object_name = 'posts'
     ordering = ['-date_posted'] #this order the posts from newest to oldest
+    paginate_by = 2
 
 class PostDetailView(DetailView):
     model = Post 
