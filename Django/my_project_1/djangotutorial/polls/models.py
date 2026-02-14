@@ -10,7 +10,7 @@ class Question(models.Model):
         return self.pub_date >= timezone.now() - datetime.timedelta(days=1)
 
     def __str__(self):
-        return f"{self.question_text} {self.pub_date}"
+        return f"{self.question_text} {self.pub_date}" #what is returned here can be seen from Django admin site
 
 class Choice(models.Model):
     question = models.ForeignKey(Question, on_delete=models.CASCADE) #this creates a relationship each Choice belongs to one Question (one to many relationship: one question --> many choices)
