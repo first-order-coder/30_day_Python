@@ -16,13 +16,15 @@ def detail(request, question_id):
     #     question = Question.objects.get(pk=question_id)
     # except Question.DoesNotExist:
     #     raise Http404("Question Doesn't exist")
+    
     question = get_object_or_404(Question, pk=question_id) #takes the Django model as its first argument and an arbitrary number of keyword arguments raises 404 error if the object doesnt exist
     context = {"question": question}
     return render(request, "polls/detail.html", context)
 
 def results(request, question_id):
-    response = "You are looking at the results of the question %s."
-    return HttpResponse(response % question_id)
+    question = get_object_or_404(Question, pk=question_id)
+    context = {"question": question}
+    return render(request, "polls/results.html", context)
 
 def vote(request, question_id):
     question = get_object_or_404(Question, pk=question_id)
