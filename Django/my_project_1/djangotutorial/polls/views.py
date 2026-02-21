@@ -1,5 +1,4 @@
 from typing import Any
-
 from django.db.models.query import QuerySet
 from django.http import HttpResponse, Http404, HttpResponseRedirect
 from .models import Question, Choice
@@ -7,6 +6,8 @@ from django.shortcuts import get_object_or_404, render
 from django.db.models import F
 from django.urls import reverse
 from django.views import generic
+from django.utils import timezone
+
 
 # we are replacing the function based views with generic views(class based views)
 
@@ -22,8 +23,8 @@ class IndexView(generic.ListView):
     context_object_name = "latest_question_list"
 
     def get_queryset(self):
-        """ Retrun the Last five published questions """
-        return Question.objects.order_by("-pub_date")[:5]
+        """ Retrun the Last five published questions (not including those set to be published in the future). """
+        return Question.objects.filter(pub_date__lte=timezone.now()).order_by("-pub_date")[:5]
 
 # def detail(request, question_id):
 #     # try:
