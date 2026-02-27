@@ -4,5 +4,6 @@ venv
 venv/
 .venv/
 env/
+.env
 ENV/
 Django/my_env/
